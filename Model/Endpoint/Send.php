@@ -30,16 +30,16 @@ class Send implements SendInterface
     }
 
     /**
-     * @param array $sendTo
-     * @param array $sender
-     * @param array $templateVars
+     * @param string[] $sendTo
+     * @param string[] $sender
+     * @param string[] $templateVars
      * @param string|null $subject
      * @param string|null $areaCode
      * @param int|null $storeId
-     * @param array|null $cc
-     * @param array|null $bcc
+     * @param string[]|null $cc
+     * @param string[]|null $bcc
      * @param string|null $replyTo
-     * @param null $template
+     * @param int|string|null $template
      * @return ResponseInterface
      */
     public function execute(
@@ -47,11 +47,11 @@ class Send implements SendInterface
         array $sender,
         array $templateVars,
         ?string $subject,
-        ?string $areaCode,
-        ?int $storeId,
-        ?array $cc,
-        ?array $bcc,
-        ?string $replyTo,
+        ?string $areaCode = null,
+        ?int $storeId = null,
+        ?array $cc = null,
+        ?array $bcc = null,
+        ?string $replyTo = null,
         $template = null
     ): ResponseInterface {
         $result = $this->mailService->handle(
@@ -71,7 +71,7 @@ class Send implements SendInterface
         $response = $this->responseFactory->create();
 
         $response->setSuccess($result['success']);
-        $response->setError($result['error']);
+        $response->setError($result['error'] ?: '');
 
         return $response;
     }

@@ -69,7 +69,7 @@ class MailService implements MailInterface
      * @param string[]|null $cc
      * @param string[]|null $bcc
      * @param string|null $replyTo
-     * @param null|int|string $template
+     * @param int|string|null $template
      * @return string[]
      */
     public function handle(
@@ -94,7 +94,7 @@ class MailService implements MailInterface
                 !$template,
                 $subject
             );
-            $transport = $this->transportBuilder
+            $buildTransport = $this->transportBuilder
                 ->setTemplateIdentifier($handledTemplate)
                 ->setTemplateOptions(
                     [
@@ -104,11 +104,17 @@ class MailService implements MailInterface
                 )
                 ->setTemplateVars($handledTemplateVars)
                 ->setFromByScope($sender)
-                ->addTo($sendTo['email'])
-                ->addCc($cc)
-                ->addBcc($bcc)
-                ->setReplyTo($replyTo)
-                ->getTransport();
+                ->addTo($sendTo['email']);
+            if ($cc) {
+                $buildTransport->addCc($cc);
+            }
+            if ($bcc) {
+                $buildTransport->addBcc($bcc);
+            }
+            if ($replyTo) {
+                $buildTransport->setReplyTo($replyTo);
+            }
+            $transport = $buildTransport->getTransport();
             try {
                 $transport->sendMessage();
             } catch (\Exception $e) {

@@ -22,7 +22,7 @@ interface MailInterface
      * @param string[]|null $cc
      * @param string[]|null $bcc
      * @param string|null $replyTo
-     * @param null|int|string $template
+     * @param int|string|null $template
      * @return string[]
      */
     public function handle(
@@ -36,5 +36,5 @@ interface MailInterface
         ?array $bcc,
         ?string $replyTo,
         $template = null
-    );
+    ): array;
 }

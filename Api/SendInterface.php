@@ -28,7 +28,7 @@ interface SendInterface
      * @param string[]|null $cc
      * @param string[]|null $bcc
      * @param string|null $replyTo
-     * @param null|int|string $template
+     * @param int|string|null $template
      * @return ResponseInterface
      */
     public function execute(
@@ -36,11 +36,11 @@ interface SendInterface
         array $sender,
         array $templateVars,
         ?string $subject,
-        ?string $areaCode,
-        ?int $storeId,
-        ?array $cc,
-        ?array $bcc,
-        ?string $replyTo,
+        ?string $areaCode = null,
+        ?int $storeId = null,
+        ?array $cc = null,
+        ?array $bcc = null,
+        ?string $replyTo = null,
         $template = null
     ): ResponseInterface;
 }

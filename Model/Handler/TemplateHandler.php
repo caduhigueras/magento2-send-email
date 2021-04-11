@@ -33,21 +33,21 @@ class TemplateHandler
      */
     public function handle($template)
     {
-        /**
-         * if template comes as scope config, ex: sales_email/order/template
-         * extract it's identifier
-         */
-        if (strpos($template, '/') !== false) {
-            //if template is coming as scope config, ex: sales_email/order/template - we need to
-            $template = $this->scopeConfig->getValue(
-                $template,
-                ScopeInterface::SCOPE_STORE
-            );
-        }
         if (!$template) {
             return self::DEFAULT_CODEBABY_TEMPLATE_ID;
+        } else {
+            /**
+             * if template comes as scope config, ex: sales_email/order/template
+             * extract it's identifier
+             */
+            if (strpos($template, '/') !== false) {
+                //if template is coming as scope config, ex: sales_email/order/template - we need to
+                $template = $this->scopeConfig->getValue(
+                    $template,
+                    ScopeInterface::SCOPE_STORE
+                );
+            }
         }
-
-        return $template;
+        return $template ?: self::DEFAULT_CODEBABY_TEMPLATE_ID;
     }
 }
