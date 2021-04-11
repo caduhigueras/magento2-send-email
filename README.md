@@ -36,7 +36,7 @@ After installation, run the following commands:
 
 `bcc` (null|Array) Emails that will be in hidden copy
 
-`replyTo` (null|String) the email to which the replis will point
+`replyTo` (null|String) the email to which the replies will point
 
 `template` (null|int|string) Can be set as: 
 - A system config value, such as sales_email/order/template
