@@ -19,7 +19,7 @@ After installation, run the following commands:
 
 `bin/magento c:f`
 
-#Parameters Definition
+# Parameters Definition
 
 `sendTo` (Array) - Must contain 'email' key
 
