@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--/**
+* CodeBaby_Email | webapi.xml
+* Created by CodeBaby DevTeam.
+* User: cadu.higueras
+* Date: 10/4/2021
+**/-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Send Email Service -->
+    <route url="/V1/cb/send" method="POST">
+        <service class="CodeBaby\Email\Model\Endpoint\Send" method="execute"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--/**
+* CodeBaby_Email | di.xml
+* Created by CodeBaby DevTeam.
+* User: cadu.higueras
+* Date: 10/4/2021
+**/-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="CodeBaby\Email\Api\MailInterface" type="CodeBaby\Email\Model\Service\MailService" />
+    <preference for="CodeBaby\Email\Api\SendInterface" type="CodeBaby\Email\Model\Endpoint\Send" />
+</config>

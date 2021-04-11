@@ -1,0 +1,28 @@
+{
+    "name": "codebaby/email",
+    "description": "General purpose email sending module",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "CodeBaby",
+            "email": "cadu@codebaby.tech",
+            "homepage": "https://codebaby.tech"
+        }
+    ],
+    "minimum-stability": "stable",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0",
+        "magento/magento-composer-installer": "*",
+        "magento/framework": "*"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "CodeBaby\\Email\\": ""
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CodeBaby_Email | email_templates.xml
+ * Created by CodeBaby DevTeam.
+ * User: cadu.higueras
+ * Date: 11/4/2021
+ **/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="codebaby_default_email" label="CodeBaby - Generic Email Template" file="codebaby_default_email.html" type="html" module="CodeBaby_Email" area="frontend"/>
+</config>

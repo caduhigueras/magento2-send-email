@@ -1,0 +1,16 @@
+<?php /**
+ * CodeBaby_Email | generic.phtml
+ * Created by CodeBaby DevTeam.
+ * User: cadu.higueras
+ * Date: 11/4/2021
+ **/ ?>
+<?php /** @var \Magento\Framework\View\Element\Template $block */  ?>
+<?php $data = $block->getData('custom_data'); ?>
+<table>
+    <?php foreach ($data as $name => $value): ?>
+    <tr>
+        <td><?php echo $name; ?>: </td>
+        <td><?php echo $value; ?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
